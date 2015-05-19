@@ -18,7 +18,7 @@ RSpec.feature "Alerts" do
 
     expect(page).not_to have_text("Product was successfully created.")
   end
-  scenario "alert flash messages are dissmissable", js:true do
+  scenario "alert flash messages are dismissable", js:true do
     visit '/products/new'
     # save_and_open_page
 
