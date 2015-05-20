@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-RSpec.feature "Products" do
+RSpec.feature "Products", type: :feature do
+  background do
+    login_as_user
+  end
+
   scenario "create a new product successfull" do
     visit '/products'
     expect(page).to have_text("Listing Products")

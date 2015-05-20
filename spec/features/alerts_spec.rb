@@ -1,9 +1,13 @@
 require 'rails_helper'
 
-RSpec.feature "Alerts" do
+RSpec.feature "Alerts", type: :feature do
+  background do
+    login_as_user
+  end
+
   scenario "should be dissmissable", js:true do
     visit '/products/new'
-
+    # save_and_open_page
     fill_in 'Name', with: "Nike T-Shirt"
     fill_in 'Description', with: "Men's T-Shirt in red"
     fill_in 'Price', with: "15.00"
