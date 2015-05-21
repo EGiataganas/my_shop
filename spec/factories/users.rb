@@ -5,5 +5,19 @@ FactoryGirl.define do
     password "notasecret"
     password_confirmation "notasecret" 
     confirmed_at  2.months.ago
+
+    trait :admin do
+      name "Administration"
+      email "admin@example.com"
+      admin true
+    end
+
+    trait :expired do
+      created_at { 3.months.ago }
+    end
+
+    trait :unconfirmed do
+      confirmed_at nil
+    end
   end
 end
