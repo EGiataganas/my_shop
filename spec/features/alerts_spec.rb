@@ -15,7 +15,6 @@ RSpec.feature "Alerts", type: :feature do
     click_button 'Create Product'
     expect(page).to have_text("Product was successfully created.")
 
-    # save_and_open_page
     within '.alert-success' do
       click_button 'Close'
     end
