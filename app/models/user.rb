@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
       where(arel_table[:created_at].lt(expired_at))
     end
 
-    def name(name)
+    def matches_name(name)
       where(arel_table[:name].matches(name))
     end
   end
