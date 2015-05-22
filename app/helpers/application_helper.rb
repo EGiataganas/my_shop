@@ -29,4 +29,17 @@ module ApplicationHelper
       concat(message)
     end
   end
+
+  def translate(key, options = {})
+    super(key, options.merge(scope: @_i18n_scope))
+  end
+
+  alias_method :t, :translate
+
+  def with_i18n_scope(scope, &block)
+    old_i18n_scope, @_i18n_scope = @_i18n_scope, scope
+    yield
+  ensure
+    @_i18n_scope = old_i18n_scope
+  end
 end

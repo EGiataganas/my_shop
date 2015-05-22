@@ -23,7 +23,13 @@
     <%= f.label :price %><br>
     <%= f.text_field :price %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="btn-group" role="group">
+    <% if @product.new_record? %>
+      <%= f.submit 'Create ' + convert_to_model(@product).model_name, class:'btn btn-primary' %>
+    <% elsif @product.persisted? %>
+      <%= f.submit 'Save ' + convert_to_model(@product).model_name, class:'btn btn-primary' %>
+    <% end %>
+    <%= link_to 'Back', products_path, class: 'btn btn-default' %>
   </div>
 <% end %>
